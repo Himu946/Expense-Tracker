@@ -1,0 +1,25 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+#expense-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#expense-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#expense-list li .expense-details {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
