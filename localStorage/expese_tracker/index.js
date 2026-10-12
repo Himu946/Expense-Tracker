@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded',()=> {
         expenses.forEach((expense,index)=>{
             const li= document.createElement('li');
             li.className='list-group-item';
-            li.innerHTML=`<div class="expense details"
+            li.innerHTML=`<div class="expense-details">
             <span>${expense.name}</span>
-            <span>RS${expense.amount}</span>
+            <span>Rs ${expense.amount}</span>
             <span>${expense.category}</span>
             </div>
             <button class="btn btn-warning btn-sm edit-expense" data-index="${index}">Edit</button>
-            <button class="btn btn-danger btn-sm delete-expense" data-index=${index}">Delete</button>
+            <button class="btn btn-danger btn-sm delete-expense" data-index="${index}">Delete</button>
         `
             expenseList.appendChild(li);
             total+=parseFloat(expense.amount);
@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded',()=> {
     } );
     expenseList.addEventListener('click',(e)=>{
         if(e.target.classList.contains('delete-expense')){
-            const index= e.target.dataset.index;
+            const index= Number(e.target.dataset.index);
             expenses.splice(index,1);
             updateExpenses();
         }
         if(e.target.classList.contains('edit-expense')){
-            const index=e.target.dataset.index;
+            const index=Number(e.target.dataset.index);
             const expense= expenses[index];
             expenseName.value=expense.name;
             amount.value= expense.amount;
